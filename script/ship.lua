@@ -8,7 +8,8 @@ ship = {
     thrrev=10,
     thrrig=14,
     thrlef=17,
-    bul=18
+    bul=18,
+    hp=4
     }
     bul={}
     
@@ -99,6 +100,21 @@ ship = {
             b.x+=1
             if(b.x>100) then
                 del(bul,b)
+            end
+            for n in all(nms) do
+                if strike(n,b) then
+                    if n.sprt ==21 then
+                        score +=10
+                    elseif n.sprt==23 then
+                        score +=25
+                    elseif n.sprt==25 then
+                        score +=40
+                    end
+                    del(nms,n)
+                    del(bul,b)
+                    sfx(24)
+                    nmy_gen()
+                end
             end
         end
     end

@@ -40,10 +40,26 @@ function title_init()
 			tty=44
 		end
 		
-		new_letter ={spr1=tspr1,
+		new_letter ={
+		
+		spr1=tspr1,
 		spr2=tspr2,
-		tx=ttx,ty=tty}
+		tx=ttx,
+		ty=tty
+		
+		}
 		add(title,new_letter)
 		
+	end
+end
+
+
+
+function move_title()
+	for t in all (title) do
+	if (t.tx<=0) then
+			del(title,t)
+		end
+		t.tx-= rnd(3)
 	end
 end
